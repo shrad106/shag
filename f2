@@ -1,0 +1,17 @@
+GIT_AUTHOR_NAME="JohnDoe"\ 
+GIT_AUTHOR_EMAIL="john@example.com"\ 
+GIT_AUTHOR_DATE="2023-01-15 10:00:00"\ 
+GIT_COMMITTER_DATE="2023-01-15 10:00:00"\ 
+git commit -m "Dummy commit on Jan 15,2023"
+git log
+for d in 2023-02-01 2023-03-01 2023-06-01 2023-10-01 2023-12-01
+do
+  echo "Updated on $d" > readme.txt
+  git add readme.txt
+  GIT_AUTHOR_NAME="JohnDoe" \
+  GIT_AUTHOR_EMAIL="john@example.com" \
+  GIT_AUTHOR_DATE="$d 10:00:00" \
+  GIT_COMMITTER_DATE="$d 10:00:00" \
+  git commit -m "Dummy commit on $d"
+done
+git log
